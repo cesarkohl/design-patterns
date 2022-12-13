@@ -1,0 +1,39 @@
+@startuml
+'Too many constructor parameters
+'In most cases most of the parameters will be unused,
+'making the constructor calls pretty ugly.
+
+note as n1
+const builder = new IkeaChairBuilder();
+const director = new ChairCreator(builder);
+director.createChair();
+const chair: IkeaChair = builder.getChair();
+end note
+
+class ChairCreator {
+    - builder: ChairBuilder;
+    + constructor(builder) {}
+    + createChair(type: string = "ikea") {}
+}
+
+interface ChairBuilder {
+    + reset(): void;
+    + buildStepA(): void;
+    + buildStepB(): void;
+    + buildStepZ(): void;
+}
+
+class IkeaChairBuilder implements ChairBuilder {
+    - result: IkeaChair;
+    + reset() {}
+    + buildStepA() {}
+    + buildStepB() {}
+    + buildStepZ() {}
+    + getChair(): IkeaChair {}
+}
+
+class IkeaChair {}
+
+ChairCreator <-- ChairBuilder
+IkeaChairBuilder o-- IkeaChair
+@enduml
