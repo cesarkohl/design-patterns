@@ -1,0 +1,18 @@
+@startuml
+note as n2
+const factory = new Factory();
+const chair = factory.createChair("A");
+end note
+
+class Factory {
+    + create(type: string): Chair {};
+}
+
+interface Chair {}
+class ChairA implements Chair {}
+class ChairB implements Chair {}
+
+Factory <-- Chair
+Factory o-- ChairA
+Factory o-- ChairB
+@enduml

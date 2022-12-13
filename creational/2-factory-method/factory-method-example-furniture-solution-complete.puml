@@ -1,0 +1,37 @@
+@startuml
+note as n2
+const factory = new IkeaFactory();
+const chair = factory.createChair();
+end note
+
+abstract class Factory {
+    + createChair(): Chair {\n    // <b>The Factory Method!</b>\n    // Implementation is optional\n    // empty due to +1 factories\n}
+    + cleaning(): boolean {}
+}
+
+class IkeaFactory extends Factory {
+    + createChair(): Chair {\n    return new IkeaChair();\n}
+}
+
+class TokStokFactory extends Factory {
+    + createChair(): Chair {\n    return new TokStokChair();\n}
+}
+
+interface Chair {
+    + style(): string;
+}
+
+class IkeaChair implements Chair {
+    style(): string {}
+}
+
+class TokStokChair implements Chair {
+    style(): string {}
+}
+
+Factory <-- Chair
+IkeaFactory <-- Chair
+TokStokFactory <-- Chair
+IkeaFactory o-- IkeaChair
+TokStokFactory o-- TokStokChair
+@enduml

@@ -1,0 +1,103 @@
+@startuml
+note as n1
+<b>Could be added:</b>
+* New factories:
+    TokStokFactory,
+    CampoLargoFactory,
+    ...
+* New products:
+    Table,
+    Wardrobe,
+    ...
+end note
+
+note as n2
+const factory = new IkeaFactory();
+const chair = factory.createChair();
+end note
+
+interface Factory {
+    + createChair(): Chair;
+    + createTable(): Table;
+    + createWardrobe(): Wardrobe;
+}
+
+class IkeaFactory implements Factory {
+    + createChair(): Chair {}
+    + createTable(): Table {}
+}
+
+class TokStokFactory implements Factory {
+    + createChair(): Chair {}
+    + createTable(): Table {}
+}
+
+class CampoLargoFactory implements Factory {
+    + createChair(): Chair {}
+    + createTable(): Table {}
+}
+
+interface Chair {
+    + style(): string;
+}
+
+interface Table {
+    + style(): string;
+}
+
+interface Wardrobe {
+    + style(): string;
+}
+
+class IkeaChair implements Chair {
+    + style(): string {\n    return "ikea-style";\n}
+}
+
+class IkeaTable implements Table {
+    + style(): string {\n    return "ikea-style";\n}
+}
+
+class IkeaWardrobe implements Wardrobe {
+    + style(): string {\n    return "ikea-style";\n}
+}
+
+class TokStokChair implements Chair {
+    + style(): string {\n    return "tokstok-style";\n}
+}
+
+class TokStokTable implements Table {
+    + style(): string {\n    return "tokstok-style";\n}
+}
+
+class TokStokWardrobe implements Wardrobe {
+    + style(): string {\n    return "tokstok-style";\n}
+}
+
+class CampoLargoChair implements Chair {
+    + style(): string {\n    return "campo-largo-style";\n}
+}
+
+class CampoLargoTable implements Table {
+    + style(): string {\n    return "campo-largo-style";\n}
+}
+
+class CampoLargoWardrobe implements Wardrobe {
+    + style(): string {\n    return "campo-largo-style";\n}
+}
+
+Factory <-- Chair
+Factory <-- Table
+Factory <-- Wardrobe
+
+IkeaFactory o-- IkeaChair
+IkeaFactory o-- IkeaTable
+IkeaFactory o-- IkeaWardrobe
+
+TokStokFactory o-- TokStokChair
+TokStokFactory o-- TokStokTable
+TokStokFactory o-- TokStokWardrobe
+
+CampoLargoFactory o-- CampoLargoChair
+CampoLargoFactory o-- CampoLargoTable
+CampoLargoFactory o-- CampoLargoWardrobe
+@enduml
