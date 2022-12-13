@@ -1,8 +1,8 @@
-interface Factory {
+interface Creator {
     createChair(): Chair;
 }
 
-class IkeaFactory implements Factory {
+class IkeaCreator implements Creator {
     createChair(): Chair {
         return new IkeaChair();
     }
@@ -18,5 +18,5 @@ class IkeaChair implements Chair {
     }
 }
 
-const factory = new IkeaFactory();
-const chair = factory.createChair();
+const creator = new IkeaCreator();
+const chair = creator.createChair();

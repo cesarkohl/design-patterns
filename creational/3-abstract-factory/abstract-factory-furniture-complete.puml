@@ -2,8 +2,8 @@
 note as n1
 <b>Could be added:</b>
 * New factories:
-    TokStokFactory,
-    CampoLargoFactory,
+    TokStokCreator,
+    CampoLargoCreator,
     ...
 * New products:
     Table,
@@ -12,27 +12,27 @@ note as n1
 end note
 
 note as n2
-const factory = new IkeaFactory();
-const chair = factory.createChair();
+const creator = new IkeaCreator();
+const chair = creator.createChair();
 end note
 
-interface Factory {
+interface Creator {
     + createChair(): Chair;
     + createTable(): Table;
     + createWardrobe(): Wardrobe;
 }
 
-class IkeaFactory implements Factory {
+class IkeaCreator implements Creator {
     + createChair(): Chair {}
     + createTable(): Table {}
 }
 
-class TokStokFactory implements Factory {
+class TokStokCreator implements Creator {
     + createChair(): Chair {}
     + createTable(): Table {}
 }
 
-class CampoLargoFactory implements Factory {
+class CampoLargoCreator implements Creator {
     + createChair(): Chair {}
     + createTable(): Table {}
 }
@@ -85,19 +85,19 @@ class CampoLargoWardrobe implements Wardrobe {
     + style(): string {\n    return "campo-largo-style";\n}
 }
 
-Factory <-- Chair
-Factory <-- Table
-Factory <-- Wardrobe
+Creator <-- Chair
+Creator <-- Table
+Creator <-- Wardrobe
 
-IkeaFactory o-- IkeaChair
-IkeaFactory o-- IkeaTable
-IkeaFactory o-- IkeaWardrobe
+IkeaCreator o-- IkeaChair
+IkeaCreator o-- IkeaTable
+IkeaCreator o-- IkeaWardrobe
 
-TokStokFactory o-- TokStokChair
-TokStokFactory o-- TokStokTable
-TokStokFactory o-- TokStokWardrobe
+TokStokCreator o-- TokStokChair
+TokStokCreator o-- TokStokTable
+TokStokCreator o-- TokStokWardrobe
 
-CampoLargoFactory o-- CampoLargoChair
-CampoLargoFactory o-- CampoLargoTable
-CampoLargoFactory o-- CampoLargoWardrobe
+CampoLargoCreator o-- CampoLargoChair
+CampoLargoCreator o-- CampoLargoTable
+CampoLargoCreator o-- CampoLargoWardrobe
 @enduml

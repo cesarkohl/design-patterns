@@ -1,0 +1,14 @@
+@startuml
+note as n2
+const creator = new Creator();
+const chair = creator.createChair();
+end note
+
+class Creator {
+    + createChair(): Chair {}
+}
+
+class Chair {}
+
+Creator o-- Chair
+@enduml

@@ -1,5 +1,5 @@
-abstract class Factory {
-    // This is the Factory Method
+abstract class Creator {
+    // This is the Creator Method
     public abstract createChair(): Chair;
 
     cleaning(): boolean {
@@ -7,7 +7,7 @@ abstract class Factory {
     }
 }
 
-class IkeaFactory extends Factory {
+class IkeaCreator extends Creator {
     public createChair(): Chair {
         return new IkeaChair();
     }
@@ -23,5 +23,5 @@ class IkeaChair implements Chair {
     }
 }
 
-const factory = new IkeaFactory();
-const chair = factory.createChair();
+const creator = new IkeaCreator();
+const chair = creator.createChair();

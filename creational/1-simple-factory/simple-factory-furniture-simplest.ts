@@ -1,4 +1,4 @@
-class Factory {
+class Creator {
     public createChair(): Chair {
         return new Chair();
     }
@@ -6,5 +6,5 @@ class Factory {
 
 class Chair {}
 
-const factory = new Factory();
-const chair = factory.createChair();
+const creator = new Creator();
+const chair = creator.createChair();

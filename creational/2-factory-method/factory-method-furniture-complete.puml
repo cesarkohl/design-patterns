@@ -1,0 +1,37 @@
+@startuml
+note as n2
+const creator = new IkeaCreator();
+const chair = creator.createChair();
+end note
+
+abstract class Creator {
+    + createChair(): Chair {\n    // <b>The Creator Method!</b>\n    // Implementation is optional\n    // empty due to +1 factories\n}
+    + cleaning(): boolean {}
+}
+
+class IkeaCreator extends Creator {
+    + createChair(): Chair {\n    return new IkeaChair();\n}
+}
+
+class TokStokCreator extends Creator {
+    + createChair(): Chair {\n    return new TokStokChair();\n}
+}
+
+interface Chair {
+    + style(): string;
+}
+
+class IkeaChair implements Chair {
+    style(): string {}
+}
+
+class TokStokChair implements Chair {
+    style(): string {}
+}
+
+Creator <-- Chair
+IkeaCreator <-- Chair
+TokStokCreator <-- Chair
+IkeaCreator o-- IkeaChair
+TokStokCreator o-- TokStokChair
+@enduml
