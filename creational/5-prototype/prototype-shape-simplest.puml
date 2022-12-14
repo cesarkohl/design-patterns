@@ -1,0 +1,13 @@
+@startuml
+note as n1
+const r1 = new Rectangle();
+const r2 = r1.clone();
+end note
+
+abstract Prototype {
+    + clone() {}
+}
+
+class Rectangle extends Prototype {
+}
+@enduml
