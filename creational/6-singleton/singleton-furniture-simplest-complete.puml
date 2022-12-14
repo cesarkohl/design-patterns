@@ -1,0 +1,14 @@
+@startuml
+note as n1
+const c1 = Chair.getInstance();
+const c2 = Chair.getInstance();
+// both are the same; there will
+// always be only one instance
+end note
+
+class Chair {
+    - {static} instance: Chair;
+    - constructor() {}
+    + {static} getInstance(): Chair {}
+}
+@enduml
