@@ -5,22 +5,22 @@ abstract class Prototype {
     }
 }
 
-class Shape extends Prototype {
+class Chair extends Prototype {
     color: string = "";
 }
 
-class Rectangle extends Shape {
+class IkeaChair extends Chair {
     size: number = 0;
 }
 
-const r1 = new Rectangle();
-r1.color = "r1-color";
-r1.size = 10;
+const c1 = new IkeaChair();
+c1.color = "c1-color";
+c1.size = 10;
 
-const r2 = r1.clone();
-console.log("r2", r2.color, r2.size); // r1-color, 10
+const c2 = c1.clone();
+console.log("c2", c2.color, c2.size); // c1-color, 10
 
-r1.color = "r1-color-new";
-r1.size = 20;
-console.log("r1", r1.color, r1.size); // r1-color-new, 20
-console.log("r2", r2.color, r2.size); // r1-color, 10
+c1.color = "c1-color-new";
+c1.size = 20;
+console.log("c1", c1.color, c1.size); // c1-color-new, 20
+console.log("c2", c2.color, c2.size); // c1-color, 10

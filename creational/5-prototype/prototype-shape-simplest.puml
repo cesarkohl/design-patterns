@@ -1,13 +1,13 @@
 @startuml
 note as n1
-const r1 = new Rectangle();
-const r2 = r1.clone();
+const c1 = new Chair();
+const c2 = c1.clone();
 end note
 
 abstract Prototype {
     + clone() {}
 }
 
-class Rectangle extends Prototype {
+class Chair extends Prototype {
 }
 @enduml

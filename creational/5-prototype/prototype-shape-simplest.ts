@@ -5,16 +5,16 @@ abstract class Prototype {
     }
 }
 
-class Rectangle extends Prototype {
+class Chair extends Prototype {
     color: string = "";
 }
 
-const r1 = new Rectangle();
-r1.color = "r1-color";
+const c1 = new Chair();
+c1.color = "c1-color";
 
-const r2 = r1.clone();
-console.log("r2", r2.color); // r1-color
+const c2 = c1.clone();
+console.log("c2", c2.color); // c1-color
 
-r1.color = "r1-color-new";
-console.log("r1", r1.color); // r1-color-new
-console.log("r2", r2.color); // r1-color
+c1.color = "c1-color-new";
+console.log("c1", c1.color); // c1-color-new
+console.log("c2", c2.color); // c1-color
