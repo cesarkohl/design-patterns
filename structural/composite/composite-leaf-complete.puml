@@ -1,0 +1,48 @@
+@startuml
+note as n1
+const leafA = new Leaf('leaf-a');
+const leafB = new Leaf('leaf-b');
+const composite1 = new Composite('comp-1');
+const composite2 = new Composite('comp-2');
+
+composite1.attach(leafA);
+composite1.attach(leafB);
+composite1.attach(composite2);
+
+composite2.attach(leafA);
+composite2.attach(composite1);
+
+leafA.method();
+leafB.method();
+composite1.method();
+composite2.method();
+end note
+
+interface ICompositeComponent {
+    + name: string;
+    + referenceToParent?: Composite;
+    + method(): void;
+    + detach(): void;
+}
+
+class Leaf implements ICompositeComponent {
+    + referenceToParent?: Composite;
+    + name: string;
+    + constructor(name: string) {}
+    + method(): void {}
+    + detach(): void {}
+}
+
+class Composite implements ICompositeComponent {
+    + referenceToParent?: Composite;
+    + name: string;
+    + components: ICompositeComponent[];
+    + constructor(name: string) {}
+    + method(): void {}
+    + detach(): void {}
+    + attach(component: ICompositeComponent): void {}
+    + delete(component: ICompositeComponent): void {}
+}
+
+Composite o-- ICompositeComponent
+@enduml
