@@ -1,0 +1,20 @@
+@startuml
+note as n1
+const myCodeAdapter = new MyCodeAdapter(new ThirdPartyLib());
+json = myCodeAdapter.getJson();
+end note
+
+class MyCode {
+    + getJson(): string {}
+}
+
+class ThirdPartyLib {
+    + getXml(): string {}
+}
+
+class Adapter extends MyCode {
+    - adaptee: ThirdPartyLib;
+    + constructor(adaptee: ThirdPartyLib) {}
+    + getJson() {\n    // format adaptee.getXml() to JSON\n}
+}
+@enduml
