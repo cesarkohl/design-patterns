@@ -1,0 +1,22 @@
+@startuml
+note as n1
+Problem:
+The class has two properties
+that can be combined.
+
+const redCircle = new RedCircle();
+end note
+
+class ShapeColor {
+    + shape_type: string;
+    + color_type: string;
+    + getShape() {}
+    + setShape() {}
+    + getColor() {}
+    + setColor() {}
+}
+class RedCircle extends ShapeColor {}
+class RedSquare extends ShapeColor {}
+class BlueCircle extends ShapeColor {}
+class BlueSquare extends ShapeColor {}
+@enduml

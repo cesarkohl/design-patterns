@@ -1,0 +1,38 @@
+@startuml
+note as n1
+const redCircle = new Circle(new Red());
+redCircle.setShape("circle");
+redCircle.setColor("red");
+end note
+
+class Shape {
+    + type: string;
+    + color: Color;
+    + constructor(color: Color) {}
+    + getShape() {}
+    + setShape() {}
+}
+
+class Circle extends Shape {}
+class Square extends Shape {}
+
+interface Color {
+    + type: string;
+    + getColor(): string
+    + setColor(): void
+}
+
+class Red extends Color {
+    + type: string;
+    + getColor() {}
+    + setColor() {}
+}
+
+class Blue extends Color {
+    + type: string;
+    + getColor() {}
+    + setColor() {}
+}
+
+Shape *-> Color
+@enduml

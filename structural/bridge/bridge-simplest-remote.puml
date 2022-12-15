@@ -1,0 +1,31 @@
+@startuml
+note as n1
+const tv = new Tv();
+const remote = new RemoteControl(tv);
+remote.togglePower();
+end note
+
+interface Device {
+    + isEnabled(): boolean;
+    + enable(): void;
+    + disable(): void;
+}
+
+class Tv implements Device {
+    + isEnabled(): boolean;
+    + enable(): void;
+    + disable(): void;
+}
+
+class RemoteControl {
+    - protected device: Device;
+    + constructor(device: Device) {}
+    + togglePower() {}
+}
+
+class AdvancedRemoteControl extends RemoteControl {
+    + mute() {}
+}
+
+RemoteControl *- Device
+@enduml
