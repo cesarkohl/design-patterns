@@ -5,16 +5,13 @@ const remote = new RemoteControl(tv);
 remote.togglePower();
 end note
 
-interface Device {
-    + isEnabled(): boolean;
-    + enable(): void;
-    + disable(): void;
+abstract Device {
+    + isEnabled(): boolean {};
+    + enable(): void {};
+    + disable(): void {};
 }
 
-class Tv implements Device {
-    + isEnabled(): boolean;
-    + enable(): void;
-    + disable(): void;
+class Tv extends Device {
 }
 
 class RemoteControl {

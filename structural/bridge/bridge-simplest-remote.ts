@@ -1,17 +1,14 @@
-interface Device {
-    isEnabled(): boolean;
-    enable(): void;
-    disable(): void;
-}
-
-class Tv implements Device {
-    public isEnabled() {
+abstract class Device {
+    public isEnabled(): boolean {
         return true;
-    }
-    public enable() {}
-    public disable() {
+    };
+    public enable(): void {}
+    public disable(): void {
         console.log("disable");
     }
+}
+
+class Tv extends Device {
 }
 
 class RemoteControl {
