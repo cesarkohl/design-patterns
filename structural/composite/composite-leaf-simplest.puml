@@ -26,16 +26,16 @@ interface ICompositeComponent {
 }
 
 class Leaf implements ICompositeComponent {
-    + referenceToParent?: Composite;
     + name: string;
+    + referenceToParent?: Composite;
     + constructor(name: string) {}
     + method(): void {}
     + detach(): void {}
 }
 
 class Composite implements ICompositeComponent {
-    + referenceToParent?: Composite;
     + name: string;
+    + referenceToParent?: Composite;
     + components: ICompositeComponent[];
     + constructor(name: string) {}
     + method(): void {}

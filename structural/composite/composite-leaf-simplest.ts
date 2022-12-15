@@ -6,8 +6,8 @@ interface ICompositeComponent {
 }
 
 class Leaf implements ICompositeComponent {
-    referenceToParent?: Composite;
     name: string;
+    referenceToParent?: Composite;
 
     constructor(name: string) {
         this.name = name;
@@ -28,9 +28,9 @@ class Leaf implements ICompositeComponent {
 }
 
 class Composite implements ICompositeComponent {
+    name: string;
     referenceToParent?: Composite;
     components: ICompositeComponent[];
-    name: string;
 
     constructor(name: string) {
         this.name = name;

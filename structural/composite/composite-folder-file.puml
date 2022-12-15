@@ -1,0 +1,29 @@
+@startuml
+interface ICompositeComponent {
+    + name: string;
+    + referenceToParent?: Folder;
+    + dir(): void;
+    + detach(): void;
+}
+
+class File implements ICompositeComponent {
+    + name: string;
+    + referenceToParent?: Folder;
+    + constructor(name: string) {}
+    + dir(): void {}
+    + detach(): void {}
+}
+
+class Folder implements ICompositeComponent {
+    + name: string;
+    + referenceToParent?: Folder;
+    + components: ICompositeComponent[];
+    + constructor(name: string) {}
+    + dir(): void {}
+    + detach(): void {}
+    + attach(component: ICompositeComponent): void {}
+    + delete(component: ICompositeComponent): void {}
+}
+
+Folder o-- ICompositeComponent
+@enduml
