@@ -28,5 +28,5 @@ class Red extends Color {
 class Blue extends Color {
 }
 
-Shape *-> Color
+Shape <. Color
 @enduml

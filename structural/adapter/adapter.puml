@@ -12,9 +12,11 @@ class ThirdPartyLib {
     + getXml(): string {}
 }
 
-class Adapter extends MyCode {
+class MyCodeAdapter extends MyCode {
     - adaptee: ThirdPartyLib;
     + constructor(adaptee: ThirdPartyLib) {}
     + getJson() {\n    // format adaptee.getXml() to JSON\n}
 }
+
+MyCodeAdapter <.. ThirdPartyLib
 @enduml

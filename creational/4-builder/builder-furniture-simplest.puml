@@ -12,7 +12,7 @@ end note
 
 class ChairCreator {
     - builder: ChairBuilder;
-    + constructor(builder) {}
+    + constructor(builder: ChairBuilder) {}
     + createChair(type: string = "ikea") {}
 }
 
@@ -34,6 +34,6 @@ class IkeaChairBuilder implements ChairBuilder {
 
 class IkeaChair {}
 
-ChairCreator <-- ChairBuilder
+ChairCreator <.. ChairBuilder
 IkeaChairBuilder o-- IkeaChair
 @enduml

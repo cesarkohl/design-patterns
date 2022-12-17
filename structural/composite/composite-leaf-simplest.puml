@@ -1,5 +1,8 @@
 @startuml
 note as n1
+Composite can have children.
+Leaf can't have children.
+
 const leafA = new Leaf('leaf-a');
 const leafB = new Leaf('leaf-b');
 const composite1 = new Composite('comp-1');
