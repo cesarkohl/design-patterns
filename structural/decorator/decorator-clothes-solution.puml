@@ -1,0 +1,28 @@
+@startuml
+note as n1
+const person = new Coat(TeeShirt(new Person()));
+person.wearing();
+end note
+
+interface IPerson {
+    + wearing(): string;
+}
+
+class Person implements IPerson {
+    + wearing(): string {}
+}
+
+abstract class Clothes implements IPerson {
+    - person: IPerson;
+    + constructor(person: IPerson) {}
+    + wearing(): string {\n    return this.person.wearing();\n}
+}
+
+class TeeShirt extends Clothes {
+    + wearing(): string {\n    return `TeeShirt: super.wearing()`;\n}
+}
+
+class Coat extends Clothes {
+    + wearing(): string {\n    return `Coat: super.wearing()`;\n}
+}
+@enduml

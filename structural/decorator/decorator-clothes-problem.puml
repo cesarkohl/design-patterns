@@ -1,0 +1,26 @@
+@startuml
+note as n1
+const person = new PersonTeeShirtCoat();
+person.wearing();
+end note
+
+interface IPerson {
+    + wearing(): string;
+}
+
+class Person implements IPerson {
+    + wearing(): string {\n return "I'm naked"\n}
+}
+
+class PersonTeeShirt implements IPerson {
+    + wearing(): string {\n    return "TeeShirt";\n}
+}
+
+class PersonCoat implements IPerson {
+    + wearing(): string {\n    return "Coat";\n}
+}
+
+class PersonTeeShirtCoat implements IPerson {
+    + wearing(): string {\n    return "Coat + TeeShirt";\n}
+}
+@enduml
