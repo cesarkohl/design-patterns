@@ -1,0 +1,28 @@
+@startuml
+note as n1
+const subsystem1 = new Subsystem1();
+const subsystem2 = new Subsystem2();
+const facade = new Facade(subsystem1, subsystem2);
+console.log(facade.operation());
+end note
+
+class Facade {
+    - subsystem1: Subsystem1;
+    - subsystem2: Subsystem2;
+    + constructor(subsystem1?: Subsystem1, subsystem2?: Subsystem2) {}
+    + operation(): string {}
+}
+
+class Subsystem1 {
+    + operation1(): string {}
+    + operationX(): string {}
+}
+
+class Subsystem2 {
+    + operation1(): string {}
+    + operationY(): string {}
+}
+
+Facade <.. Subsystem1
+Facade <.. Subsystem2
+@enduml
