@@ -1,0 +1,33 @@
+@startuml
+note as n1
+mutable = extrinsic
+immutable = intrinsic = flyweight
+end note
+
+class Game {
+    + mutableParticles: MutableParticle[]
+    + immutableParticles: ImmutableParticle[]
+    + addParticle(coords, vector, speed, color, sprite)
+    + draw(canvas)
+}
+
+class MutableParticle {
+    - particle
+    - coords
+    - vector
+    - speed
+    + move()
+    + draw(canvas)
+}
+
+class ImmutableParticle {
+    - color
+    - sprite
+    + move(coords, vector, speed)
+    + draw(canvas)
+}
+
+Game o-- MutableParticle
+Game o-- ImmutableParticle
+MutableParticle -> ImmutableParticle
+@enduml

@@ -1,0 +1,28 @@
+@startuml
+note as n1
+Problem: insufficient amount of RAM
+Solution: encapsulate equivalent
+particle's data together making them
+immutable.
+In the example, Particle's color and
+sprite are always the same.
+end note
+
+class Game {
+    + particles: Particle[]
+    + addParticle(particle)
+    + draw(canvas)
+}
+
+class Particle {
+    + coords
+    + vector
+    + speed
+    + color
+    + sprite
+    + move()
+    + draw(canvas)
+}
+
+Game o- Particle
+@enduml
