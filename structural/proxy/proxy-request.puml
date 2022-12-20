@@ -1,0 +1,28 @@
+@startuml
+note as n1
+A proxy controls access to
+the original object, <u>allowing</u>
+<u>you to perform something either
+<u>before or after the request</u> gets
+through to the original object.
+
+const proxy = new Proxy(new Main());
+proxy.request();
+end note
+
+interface IMain {
+    + request(): void;
+}
+
+class Main implements IMain {
+    + request(): void {}
+}
+
+class ProxyMain implements Main {
+    - main: Main;
+    + constructor(realMain: Main) {}
+    + request(): void {}
+}
+
+ProxyMain <.. Main
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+package Client1 {}
+package Client2 {}
+package Client3 {}
+package Proxy {}
+package DB {}
+
+Client1 --> Proxy
+Client2 --> Proxy
+Client3 --> Proxy
+Proxy --> DB
+@enduml

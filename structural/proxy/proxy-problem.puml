@@ -1,0 +1,10 @@
+@startuml
+package Client1 {}
+package Client2 {}
+package Client3 {}
+package DB {}
+
+Client1 --> DB
+Client2 --> DB
+Client3 --> DB
+@enduml
