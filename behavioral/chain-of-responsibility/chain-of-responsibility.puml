@@ -1,0 +1,42 @@
+@startuml
+note as n1
+const monkey = new MonkeyHandler();
+const squirrel = new SquirrelHandler();
+const dog = new DogHandler();
+monkey.setNext(squirrel).setNext(dog);
+
+const foods = ["Nut", "Banana", "Cup of Coffee"];
+for (const food of foods) {
+    console.log(`Who wants a ${food}?`);
+    const handling = monkey.handle(food);
+    if (handling) {
+        console.log(handling);
+    } else {
+        console.log(`The food was left untouched.`);
+    }
+}
+end note
+
+interface Handler {
+    + setNext(handler: Handler): Handler;
+    + handle(request: string): string;
+}
+
+abstract class AbstractHandler implements Handler {
+    - nextHandler: Handler;
+    + setNext(handler: Handler): Handler {}
+    + handle(request: string): string {}
+}
+
+class MonkeyHandler extends AbstractHandler {
+    + handle(request: string): string {}
+}
+
+class SquirrelHandler extends AbstractHandler {
+    + handle(request: string): string {}
+}
+
+class DogHandler extends AbstractHandler {
+    + handle(request: string): string {}
+}
+@enduml
