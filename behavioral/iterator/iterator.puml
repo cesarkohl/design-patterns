@@ -1,0 +1,8 @@
+@startuml
+class MyIterator {
+    + constructor(items: [])
+    + hasNext()
+    + current()
+    + next()
+}
+@enduml
