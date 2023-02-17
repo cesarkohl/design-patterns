@@ -1,0 +1,34 @@
+@startuml
+note as n1
+Useful when you need
+to revert actions: do/undo
+endnote
+
+class Calculator {
+    + value: number
+    - history: ICommand[]
+    + executeCommand(command: ICommand): void
+    + undo(): void
+}
+Calculator <-- ICommand
+
+interface ICommand {
+    execute(currentValue: number): number
+    undo(currentValue: number): number
+}
+
+class AddCommand implements ICommand {
+    execute(currentValue: number): number
+    undo(currentValue: number): number
+}
+
+class MultiplyCommand implements ICommand {
+    execute(currentValue: number): number
+    undo(currentValue: number): number
+}
+
+class AddThenMultiplyCommand implements ICommand {
+    execute(currentValue: number): number
+    undo(currentValue: number): number
+}
+@enduml

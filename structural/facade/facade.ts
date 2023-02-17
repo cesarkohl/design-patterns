@@ -6,6 +6,7 @@ class Facade {
         this.sub1 = sub1 || new Sub1();
         this.sub2 = sub2 || new Sub2();
     }
+
     operation(): string {
         let result = "Initialized....\n";
 
@@ -37,7 +38,8 @@ class Sub2 {
     }
 }
 
-const sub1 = new Sub1();
-const sub2 = new Sub2();
-const facade = new Facade(sub1, sub2);
+// const sub1 = new Sub1();
+// const sub2 = new Sub2();
+// const facade = new Facade(sub1, sub2);
+const facade = new Facade();
 console.log(facade.operation());
