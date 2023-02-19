@@ -1,0 +1,16 @@
+@startuml
+class Editor {
+    + x: number = 0;
+    + createSnapshot(): Snapshot
+}
+
+class Snapshot {
+    + editor: Editor;
+    + readonly x: number;
+
+    constructor(editor: Editor, x: number)
+
+    + restore()
+}
+Snapshot <.. Editor
+@enduml
