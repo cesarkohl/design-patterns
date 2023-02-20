@@ -1,0 +1,21 @@
+@startuml
+class MyClass {
+    + events: Publisher
+    + myMethod() {\n    events.notify()\n}
+}
+
+class Publisher {
+    - listeners: Listener[]
+    + subscribe(listener: Listener)
+    + unsubscribe((listener: Listener)
+    + notify() {\n    listeners.each.update()\n}
+}
+
+class Listener {
+    + name: string
+    + update()
+}
+
+MyClass *-- Publisher
+Publisher o.. Listener
+@enduml
