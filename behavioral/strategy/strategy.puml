@@ -1,0 +1,24 @@
+@startuml
+interface IService {
+    + calculate(weight: number): number;
+}
+
+class ServiceA {
+    + calculate(weight: number): number;
+}
+
+class ServiceB {
+    + calculate(weight: number): number;
+}
+
+class Context {
+    - service: IService
+    + constructor(service: IService)
+    + setService(service: IService)
+    + calculate(weight: number)
+}
+
+IService <|.. ServiceA
+IService <|.. ServiceB
+Context <.. IService
+@enduml
