@@ -1,0 +1,30 @@
+@startuml
+class Phone {
+    - state: State
+    + setState(state: State)
+    + lock()
+    + unlock()
+}
+
+abstract State {
+    - phone: Phone
+    + onOpen()
+    + onClose()
+}
+
+class LockedState {
+    + onOpen()
+    + onClose()
+}
+
+class UnlockedState {
+    + onOpen()
+    + onClose()
+}
+
+Phone *-- LockedState
+Phone <.. State
+
+State <|-- LockedState
+State <|-- UnlockedState
+@enduml
