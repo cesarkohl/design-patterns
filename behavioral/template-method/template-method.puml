@@ -1,0 +1,19 @@
+@startuml
+class Process {
+    + start()
+    - step1()
+    - step2()
+    - step3()
+}
+
+class Variation1 extends Process {
+    - step1()
+}
+class Variation2 extends Process {
+    - step3()
+}
+class Variation3 extends Process {
+    - step1()
+    - step2()
+}
+@enduml
