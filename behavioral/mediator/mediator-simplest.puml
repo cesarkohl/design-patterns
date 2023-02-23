@@ -1,0 +1,9 @@
+@startuml
+object AirTrafficControl
+object Flight1
+object Flight2
+object Flight3
+AirTrafficControl <--> Flight1
+AirTrafficControl <--> Flight2
+AirTrafficControl <--> Flight3
+@enduml

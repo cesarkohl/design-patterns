@@ -1,0 +1,25 @@
+@startuml
+interface IMediator {
+    + interaction()
+}
+
+class Mediator implements IMediator {
+    + piece: Piece
+    + part: Part
+    + interaction()
+}
+
+class Piece {
+    + mediator: IMediator
+    + constructor(mediator: IMediator)
+    + invoke()
+}
+Piece <.. IMediator
+
+class Part {
+    + mediator: IMediator
+    + constructor(mediator: IMediator)
+    + invoke()
+}
+Part <.. IMediator
+@enduml
