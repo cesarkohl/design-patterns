@@ -1,0 +1,30 @@
+@startuml
+abstract Place {
+    + visit(visitor: Visitor)
+}
+
+abstract Visitor {
+    + visitPark(place: Park)
+    + visitHome(place: Home)
+}
+
+class Park extends Place {
+    + visit(visitor: Visitor)
+}
+Park o-- Visitor
+
+class Home extends Place {
+    + visit(visitor: Visitor)
+}
+Home o-- Visitor
+
+class Dude extends Visitor {
+    + visitHome(home: Home)
+    + visitPark(park: Park)
+}
+
+class Robber extends Visitor {
+    + visitHome(home: Home)
+    + visitPark(park: Park)
+}
+@enduml
