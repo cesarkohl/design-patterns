@@ -1,0 +1,25 @@
+@startuml
+note as n1
+const chain = new MonkeyHandler();
+const dog = new DogHandler();
+chain.setNext(dog);
+
+chain.handle('banana'); // stopped at monkey (false)
+chain.handle('meat'); // stopped at dog (false)
+chain.handle('grapes'); // ended chain (true)
+end note
+
+class Handler {
+    - nextHandler: Handler;
+    + setNext(handler: Handler): Handler {}
+    + handle(request: string): string {}
+}
+
+class MonkeyHandler extends Handler {
+    + handle(request: string): string {}
+}
+
+class DogHandler extends Handler {
+    + handle(request: string): string {}
+}
+@enduml
